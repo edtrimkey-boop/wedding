@@ -8,14 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Overpass:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://wjvoetdkkggyhtcoqqcj.supabase.co/storage/v1/object/public/Ed%20Trim%20Key/TRIM%20KEY%20FAVICON.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://wjvoetdkkggyhtcoqqcj.supabase.co/storage/v1/object/public/Ed%20Trim%20Key/TRIM%20KEY%20FAVICON.png">
 
-<!-- Apple (mobile icon) -->
-<link rel="apple-touch-icon" href="https://wjvoetdkkggyhtcoqqcj.supabase.co/storage/v1/object/public/Ed%20Trim%20Key/TRIM%20KEY%20FAVICON.png">
+    <!-- Apple (mobile icon) -->
+    <link rel="apple-touch-icon" href="https://wjvoetdkkggyhtcoqqcj.supabase.co/storage/v1/object/public/Ed%20Trim%20Key/TRIM%20KEY%20FAVICON.png">
 
-<!-- Theme color -->
-<meta name="theme-color" content="#0B111E">
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0B111E">
+    
     <style>
         :root {
             --bg-dark: #090e17;
@@ -65,12 +67,11 @@
         }
         .glass-panel:hover { transform: translateY(-5px); }
 
-        /* EXACT DECORATION LOGIC (1080x400 Ratio) */
         .decor-top, .decor-bottom {
             width: 100%; 
-            max-width: 400px; /* Gives it appropriate presence on desktop */
+            max-width: 400px;
             height: auto; 
-            aspect-ratio: 1080 / 400; /* Locks the bounding box strictly to your image size */
+            aspect-ratio: 1080 / 400;
             object-fit: contain;
             display: block; 
             margin: 0 auto;
@@ -84,7 +85,6 @@
         .side-decor.left { transform: rotate(-90deg); }
         .side-decor.right { transform: rotate(90deg); }
 
-        /* Booklet Doors */
         #landing {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             perspective: 2000px; z-index: 100; background: var(--bg-darker);
@@ -151,11 +151,10 @@
         }
         .event-tile:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
         
-        /* EXACT EVENT LOGIC (Perfect 1:1 Square) */
         .event-image { 
             width: 100%; 
             height: auto; 
-            aspect-ratio: 1 / 1; /* Forces the image into a perfect 1080x1080 square ratio */
+            aspect-ratio: 1 / 1; 
             object-fit: cover; 
             border-bottom: 1px solid rgba(226, 192, 115, 0.3); 
         }
@@ -169,7 +168,6 @@
         }
         .btn-play-event.playing { background: var(--gold-gradient); color: #000; border-color: transparent; }
 
-        /* Form / Guestbook */
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; color: var(--accent-gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
         .form-group input, .form-group textarea {
@@ -202,7 +200,6 @@
         .map-container { border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 2rem; }
         iframe { width: 100%; height: 350px; border: none; filter: contrast(1.1) brightness(0.9); }
 
-        /* Custom Falling Petals */
         .petal {
             position: fixed; top: -10vh; z-index: 9999; pointer-events: none;
             width: 30px; height: auto; opacity: 0.9;
@@ -254,6 +251,7 @@
             <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">Together with their families</p>
             
             <div class="names-section">
+                <!-- Update this URL if you have your own side decor image -->
                 <img src="https://YOUR_SUPABASE_PROJECT.supabase.co/storage/v1/object/public/wedding-assets/floral-side.png" class="side-decor left" onerror="this.style.display='none'">
                 <div class="couple-names script-font gold-gradient-text">
                     Tanveer Shekh<br><span style="font-size: 2.5rem; font-family: 'Montserrat', sans-serif; color: var(--accent-gold); text-shadow: none;">&</span><br>Nasreen Khatun
@@ -342,6 +340,7 @@
         </section>
 
         <section class="glass-panel fade-in">
+            <!-- Update this URL if you have your own bottom form decor image -->
             <img src="https://YOUR_SUPABASE_PROJECT.supabase.co/storage/v1/object/public/wedding-assets/floral-top.png" alt="Decor" class="decor-top" onerror="this.style.display='none'">
             
             <h2 class="gold-gradient-text" style="font-size: 2.5rem; font-family: 'Great Vibes', cursive; margin-bottom: 1rem;">Leave a Blessing</h2>
@@ -372,6 +371,7 @@
                 </div>
             </div>
 
+            <!-- Update this URL if you have your own bottom form decor image -->
             <img src="https://YOUR_SUPABASE_PROJECT.supabase.co/storage/v1/object/public/wedding-assets/floral-top.png" alt="Decor" class="decor-bottom" onerror="this.style.display='none'">
         </section>
 
@@ -416,7 +416,8 @@
 
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGlQIQprGBsRbXGn24zU7jQWEXEsFiLzezfy_mZ-Fn2uc63X6DZw385oI2CEXP8LQIbw/exec"; 
 
-        document.getElementById('blessing').addEventListener('submit', function(e) {
+        // CRITICAL FIX: Changed from 'blessing' to 'blessing-form'
+        document.getElementById('blessing-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const btn = this.querySelector('.btn-submit');
@@ -498,9 +499,7 @@
             }
         }
 
-        // Custom Falling Petal Generator
         function triggerFloralFall() {
-            // REPLACE THIS URL WITH YOUR ACTUAL SUPABASE PETAL IMAGE URL
             const petalUrl = "https://wjvoetdkkggyhtcoqqcj.supabase.co/storage/v1/object/public/Flowers/vecteezy_single-red-rose-petal-abstract-digital-art-background_54714603.png";
             
             for(let i=0; i<35; i++){
@@ -508,14 +507,11 @@
                 petal.src = petalUrl;
                 petal.className = 'petal';
                 
-                // Randomize horizontal starting point
                 petal.style.left = Math.random() * 100 + 'vw';
                 
-                // Randomize speed and delay
                 petal.style.animationDuration = (Math.random() * 4 + 3) + 's';
                 petal.style.animationDelay = (Math.random() * 2) + 's';
                 
-                // Randomize size for depth effect
                 const size = Math.random() * 15 + 20; 
                 petal.style.width = size + 'px';
                 
@@ -558,7 +554,7 @@
                         revealed = true;
                         canvas.style.opacity = '0';
                         setTimeout(() => canvas.style.display = 'none', 1000);
-                        triggerFloralFall(); // Triggers the custom image petals here
+                        triggerFloralFall(); 
                     }
                 }
             }
